@@ -1,0 +1,19 @@
+
+	fmt.Println("Select * From Users where name = 'Joe'	-> FIND")
+	db.Find(&user, "name=?", "Joe")
+	fmt.Printf("%d\t%s\t%d\t%s\n", user.ID, user.Name, user.Age, user.Country)
+
+	fmt.Println()
+	u = User{}
+	fmt.Println("Select * From Users where name = 'Joe'	-> STRUCT")
+	db.Find(&user, User{Name: "Joe"})
+	fmt.Printf("%d\t%s\t%d\t%s\n", user.ID, user.Name, user.Age, user.Country)
+
+	fmt.Println()
+	u = User{}
+	fmt.Println("Select * From Users where name = 'Joe'	-> MAP")
+	db.Find(&user, map[string]interface{}{"Name": "Joe"})
+	fmt.Printf("%d\t%s\t%d\t%s\n", user.ID, user.Name, user.Age, user.Country)
+	fmt.Println("-----------------------------------")
+
+
